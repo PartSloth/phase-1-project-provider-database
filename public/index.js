@@ -47,6 +47,7 @@ function buildCard(providerArr) {
         divProviderCard.appendChild(buildCardInfo(providerObj));
         divProviderCard.appendChild(buildCardDates(providerObj));
         divCard.appendChild(divProviderCard);
+        divCard.appendChild(buildLocationCard(providerObj));
         container.appendChild(divCard);
         console.log(providerObj);
     })
@@ -116,4 +117,34 @@ function buildCardDates(providerObj) {
         divCardDates.appendChild(p);
     }
     return divCardDates;
+}
+
+function buildLocationCard(providerObj) {
+    let addressesArr = providerObj.addresses;
+    let divLocationCard = document.createElement('div');
+    let h2 = document.createElement('h2');
+    let img = document.createElement('img');
+    h2.textContent = "Place of Work";
+    img.src = "https://media.istockphoto.com/id/1216271099/vector/hospital-building-solid-icon-city-clinic-medical-house-symbol-glyph-style-pictogram-on-white.jpg?s=612x612&w=0&k=20&c=YivqmULrslFAkinK7ACrq4yE-nFqPVVdrk_fz_Vi3-M=";
+    divLocationCard.appendChild(h2);
+    divLocationCard.appendChild(img);
+    addressesArr.forEach(addressObj => {
+        if(addressObj.address_purpose === "LOCATION") {
+            let p1 = document.createElement('p');
+            let p2 = document.createElement('p');
+            let p3 = document.createElement('p');
+            let p4 = document.createElement('p');
+            p1.textContent = addressObj.address_1;
+            p2.textContent = addressObj.address_2;
+            p3.textContent = `${addressObj.city}, ${addressObj.state} ${addressObj.postal_code.slice(0 , 5)}`
+            p4.textContent = addressObj.telephone_number;
+            divLocationCard.appendChild(p1);
+            if(p2 !== null) {
+                divLocationCard.appendChild(p2);
+            }
+            divLocationCard.appendChild(p3);
+            divLocationCard.appendChild(p4);
+        }
+    })
+    return divLocationCard;
 }

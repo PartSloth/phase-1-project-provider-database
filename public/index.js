@@ -45,6 +45,7 @@ function buildCard(providerArr) {
         divCard.className = "card";
         divProviderCard.appendChild(buildCardImg());
         divProviderCard.appendChild(buildCardInfo(providerObj));
+        divProviderCard.appendChild(buildCardDates(providerObj));
         divCard.appendChild(divProviderCard);
         container.appendChild(divCard);
         console.log(providerObj);
@@ -83,5 +84,36 @@ function buildCardImg() {
 }
 
 function buildCardDates(providerObj) {
+    let divCardDates = document.createElement('div');
+    let p1 = document.createElement('p');
+    let p2 = document.createElement('p');
+    let p3 = document.createElement('p');
     let lastUpdate = providerObj.basic.last_updated;
+    let insuranceArr = providerObj.identifiers;
+    p1.textContent = "Information Last Updated:"
+    p2.textContent = lastUpdate;
+    p3.textContent = "Coverage:"
+    divCardDates.className = "card-dates";
+    divCardDates.appendChild(p1);
+    divCardDates.appendChild(p2);
+    divCardDates.appendChild(p3);
+    if(insuranceArr.length > 0) {
+        insuranceArr.forEach(insuranceObj => {
+            if(insuranceObj.desc === "MEDICAID") {
+                let p = document.createElement('p');
+                p.className = "medicaid";
+                p.textContent = "Medicaid"
+                divCardDates.appendChild(p);
+            } else {
+                let p = document.createElement('p');
+                p.textContent = insuranceObj.issuer;
+                divCardDates.appendChild(p);
+            }
+        })
+    } else {
+        let p = document.createElement('p');
+        p.textContent = "N/A"
+        divCardDates.appendChild(p);
+    }
+    return divCardDates;
 }

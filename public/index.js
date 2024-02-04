@@ -65,8 +65,8 @@ function buildCardInfo(providerObj) {
     let p3 = document.createElement('p');
     h3.textContent = name;
     p1.textContent = `NPI#: ${npi}`;
-    p2.textContent = `Gender: ${gender}`;
-    p3.textContent = `Specialization(s): ${specializations}`;
+    p2.textContent = `GENDER: ${gender}`;
+    p3.textContent = `SPECIALIZATION(S): ${specializations}`;
     div.className = "card-info";
     div.appendChild(h3);
     div.appendChild(p1);
@@ -91,9 +91,9 @@ function buildCardDates(providerObj) {
     let p3 = document.createElement('p');
     let lastUpdate = providerObj.basic.last_updated;
     let insuranceArr = providerObj.identifiers;
-    p1.textContent = "Information Last Updated:"
+    p1.textContent = "INFORMATION LAST UPDATED:"
     p2.textContent = lastUpdate;
-    p3.textContent = "Coverage:"
+    p3.textContent = "COVERAGE:"
     divCardDates.className = "card-dates";
     divCardDates.appendChild(p1);
     divCardDates.appendChild(p2);
@@ -122,12 +122,19 @@ function buildCardDates(providerObj) {
 function buildLocationCard(providerObj) {
     let addressesArr = providerObj.addresses;
     let divLocationCard = document.createElement('div');
+    let divWorkImg = document.createElement('div');
+    let divWorkInfo = document.createElement('div');
     let h2 = document.createElement('h2');
     let img = document.createElement('img');
+    divLocationCard.className = "location-card";
+    divWorkImg.className = "work-img";
+    divWorkInfo.className = "work-info";
     h2.textContent = "Place of Work";
     img.src = "https://media.istockphoto.com/id/1216271099/vector/hospital-building-solid-icon-city-clinic-medical-house-symbol-glyph-style-pictogram-on-white.jpg?s=612x612&w=0&k=20&c=YivqmULrslFAkinK7ACrq4yE-nFqPVVdrk_fz_Vi3-M=";
-    divLocationCard.appendChild(h2);
-    divLocationCard.appendChild(img);
+    divWorkImg.appendChild(img);
+    divLocationCard.appendChild(divWorkImg)
+    divWorkInfo.appendChild(h2);
+    divLocationCard.appendChild(divWorkInfo);
     addressesArr.forEach(addressObj => {
         if(addressObj.address_purpose === "LOCATION") {
             let p1 = document.createElement('p');
@@ -137,13 +144,13 @@ function buildLocationCard(providerObj) {
             p1.textContent = addressObj.address_1;
             p2.textContent = addressObj.address_2;
             p3.textContent = `${addressObj.city}, ${addressObj.state} ${addressObj.postal_code.slice(0 , 5)}`
-            p4.textContent = addressObj.telephone_number;
-            divLocationCard.appendChild(p1);
+            p4.textContent = `PHONE#: ${addressObj.telephone_number}`;
+            divWorkInfo.appendChild(p1);
             if(p2 !== null) {
-                divLocationCard.appendChild(p2);
+                divWorkInfo.appendChild(p2);
             }
-            divLocationCard.appendChild(p3);
-            divLocationCard.appendChild(p4);
+            divWorkInfo.appendChild(p3);
+            divWorkInfo.appendChild(p4);
         }
     })
     return divLocationCard;

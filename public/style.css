@@ -1,10 +1,14 @@
+* {
+    font-family: Verdana, Tahoma, sans-serif;
+}
+
 div#card-container p {
     margin: 5px 0px 0px 0px;
 }
 
 #card-container {
-    margin-left: 350px;
-    margin-right: 350px;
+    margin-left: 400px;
+    margin-right: 400px;
 }
 
 .card {

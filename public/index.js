@@ -37,8 +37,9 @@ function fetchData(queryParams) {
 }
 
 function buildCard(providerArr) {
+    const container = document.getElementById('card-container');
+    container.innerHTML = '';
     providerArr.forEach(providerObj => {
-        let container = document.getElementById('card-container');
         let divProviderCard = document.createElement('div');
         let divCard = document.createElement('div');
         divProviderCard.className = "provider-card";

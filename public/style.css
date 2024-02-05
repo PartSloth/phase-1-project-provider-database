@@ -1,7 +1,78 @@
 * {
     font-family: Verdana, Tahoma, sans-serif;
+    margin: 0px;
 }
 
+/* Top bar design */
+
+#top-bar {
+    display: flex;
+    box-shadow: 0px 2px 6px #b8b8b8;
+}
+
+#home {
+    flex: 1;
+    background-color: #5D83B4;
+    padding: 15px 10px 15px 10px;
+    text-align: center;
+    color: white;
+}
+
+#desc {
+    flex-grow: 6;
+    background-color: #BCE0F6;
+    padding: 15px 10px 15px 10px;
+    text-align: center;
+    color: #262626;
+}
+
+/* Header design */
+
+#header {
+    display: flex;
+    box-shadow: 0px 50px #888888;
+}
+
+#logo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 5px 0px 5px 0px;
+}
+
+#logo img {
+    max-width: 50%;
+}
+
+#nav-bar {
+    flex: 5;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 50px;
+    padding-right: 85px;
+    color: #545454;
+}
+
+/* Main img design */
+#main-img {
+    display: flex;
+    justify-content: center;
+}
+
+#main-img img {
+    width: 100%;
+    filter: blur(2px);
+}
+
+#main-img-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Provider card design */
 div#card-container p {
     margin: 5px 0px 0px 0px;
 }

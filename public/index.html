@@ -46,6 +46,27 @@
         <input type="submit" value="Submit">
     </form>
 
+    <div id="sort-bar">
+        <h2>Sort</h2>
+        <div id="button">
+        <input type="checkbox" id="medicaid-check" name="medicaid-check" value="Medicaid">
+        <label for="medicaid-check">Medicaid</label>
+        </div>
+        <div id="gender">
+            <input type="checkbox" id="female" name="female" value="Female">
+            <label for="female">Female</label>
+            <input type="checkbox" id="male" name="male" value="Male">
+            <label for="male">Male</label>
+        </div>
+        <div id="select-div">
+            <select id="sortSelect" onchange="sortResults()">
+                <option value="Alphabetical">Alphabetical</option>
+                <option value="Last Updated">Last Updated</option>
+                <option value="NPI">NPI</option>
+              </select>
+        </div>
+    </div>
+
     <h3>Provider List</h3>
     <div id="card-container">
         <!-- TEMPLATE

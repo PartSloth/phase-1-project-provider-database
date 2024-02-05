@@ -33,7 +33,10 @@ function createParams(paramsObj) {
 function fetchData(queryParams) {
     fetch(`/api/${queryParams}`)
     .then(res => res.json())
-    .then(res => buildCard(res.results));
+    .then(res => {
+        buildCard(res.results);
+        sortResults(res.results);
+    });
 }
 
 function buildCard(providerArr) {
@@ -50,7 +53,6 @@ function buildCard(providerArr) {
         divCard.appendChild(divProviderCard);
         divCard.appendChild(buildLocationCard(providerObj));
         container.appendChild(divCard);
-        console.log(providerObj);
     })
 }
 
@@ -155,4 +157,23 @@ function buildLocationCard(providerObj) {
         }
     })
     return divLocationCard;
+}
+
+function sortResults(providerArr) {
+    var option = document.getElementById('sort-select').value;
+    let simplifiedArr = buildArr(providerArr);
+    console.log(option);
+}
+
+function buildArr(providerArr) {
+    const sortArr = [];
+    providerArr.forEach(providerObj => {
+        let proSortObj = {
+            name: `${providerObj.basic.first_name} ${providerObj.basic.last_name}`,
+            lastUpdate: providerObj.basic.last_updated,
+            npi: providerObj.number
+        }
+        sortArr.push(proSortObj);
+    })
+    return sortArr;
 }

@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", function() {
     handleForm();
 });
 
+let resultsArr = [];
+
 function handleForm() {
     let form = document.querySelector('form');
     let paramsObj = {
@@ -34,8 +36,8 @@ function fetchData(queryParams) {
     fetch(`/api/${queryParams}`)
     .then(res => res.json())
     .then(res => {
-        buildCard(res.results);
-        sortResults(res.results);
+        resultsArr = res.results;
+        buildCard(resultsArr);
     });
 }
 
@@ -159,21 +161,21 @@ function buildLocationCard(providerObj) {
     return divLocationCard;
 }
 
-function sortResults(providerArr) {
+function sortArr() {
     var option = document.getElementById('sort-select').value;
-    let simplifiedArr = buildArr(providerArr);
-    console.log(option);
-}
-
-function buildArr(providerArr) {
-    const sortArr = [];
-    providerArr.forEach(providerObj => {
-        let proSortObj = {
-            name: `${providerObj.basic.first_name} ${providerObj.basic.last_name}`,
-            lastUpdate: providerObj.basic.last_updated,
-            npi: providerObj.number
-        }
-        sortArr.push(proSortObj);
-    })
-    return sortArr;
+    console.log(resultsArr);
+    if(option === "Alphabetical") {
+        this.sort((a,b) => {
+            const nameA = a.basic.last_name;
+            const nameB = b.basic.last_name;
+            if(nameA < nameB) {
+                return -1;
+            } else if (nameA > nameB) {
+                return 1;
+            } else {
+                return 0;
+            }
+        })
+        buildCard(this);
+    }
 }

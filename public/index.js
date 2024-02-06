@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     handleForm();
     handleDropdown();
-    handleCheckbox();
+    buildCheckbox();
 });
 
 //Working array
@@ -93,8 +93,10 @@ function buildCardImg(gender) {
     let img = document.createElement('img');
     if(gender === "F") {
         img.src = "images/female_doctor.png";
+        img.className = 'female';
     } else {
         img.src = "images/male_doctor.png";
+        img.className = 'male';
     }
     div.className = "card-img";
     div.appendChild(img);
@@ -214,23 +216,27 @@ function sortArr(event) {
 }
 
 //Button sort
-function handleCheckbox() {
+function buildCheckbox() {
     let box = document.querySelectorAll('input[type="checkbox"]');
     box.forEach(box => {
         box.addEventListener('click', event => {
             const cards = document.querySelectorAll('.card');
-            if(box.checked) {
-                if(box.name === 'medicaid-check') {
-                    cards.forEach(card => {
-                        const cardWithoutMedicaid = !card.querySelector('.medicaid');
-                        if (cardWithoutMedicaid) {
-                            card.classList.add('hidden');
-                        }
-                    })
-                }
-            } else {
-                cards.forEach(card => card.classList.remove('hidden'))
-            }
+            handleCheckbox(box, cards, 'medicaid');
         })
     });
+}
+
+function handleCheckbox(box, cards, criteria) {
+    if(box.checked) {
+        if(box.name === criteria) {
+            cards.forEach(card => {
+                const cardWithoutCriteria = !card.querySelector(`.${criteria}`);
+                if (cardWithoutCriteria) {
+                    card.classList.add('hidden');
+                }
+            })
+        }
+    } else {
+        cards.forEach(card => card.classList.remove('hidden'))
+    }
 }

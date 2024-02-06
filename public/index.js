@@ -18,6 +18,7 @@ function handleForm() {
     form.addEventListener('submit', event => {
         let queryParams;
         event.preventDefault()
+        document.querySelector('.loader').classList.remove('hidden');
         paramsObj.postal_code = event.target.postal_code.value;
         paramsObj.first_name = event.target.first_name.value;
         paramsObj.last_name = event.target.last_name.value;
@@ -47,6 +48,10 @@ function fetchData(queryParams) {
 
 //Master function to create HTML elements after extraction
 function buildCard(providerArr) {
+    document.querySelector('.loader').classList.add('hidden')
+    if(document.querySelector('#placeholder')){
+        document.querySelector('#placeholder').remove();
+    }
     const container = document.getElementById('card-container');
     container.innerHTML = '';
     providerArr.forEach(providerObj => {

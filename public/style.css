@@ -152,14 +152,20 @@ div.work-img img {
 #placeholder {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
-    height: 400px;
-    gap: 15px;
+    height: 150px;
+    margin: 35px;
 }
 
 #awaiting {
     color: #8694a3;
+}
+
+#loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .loader {
@@ -169,6 +175,7 @@ div.work-img img {
     width: 50px;
     height: 50px;
     animation: spin 1s linear infinite;
+    margin: 15px;
   }
   
   @keyframes spin {

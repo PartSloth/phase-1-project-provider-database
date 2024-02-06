@@ -50,9 +50,10 @@ function buildCard(providerArr) {
     providerArr.forEach(providerObj => {
         let divProviderCard = document.createElement('div');
         let divCard = document.createElement('div');
+        let gender = providerObj.basic.gender;
         divProviderCard.className = "provider-card";
         divCard.className = "card";
-        divProviderCard.appendChild(buildCardImg());
+        divProviderCard.appendChild(buildCardImg(gender));
         divProviderCard.appendChild(buildCardInfo(providerObj));
         divProviderCard.appendChild(buildCardDates(providerObj));
         divCard.appendChild(divProviderCard);
@@ -85,10 +86,14 @@ function buildCardInfo(providerObj) {
 }
 
 //Extraction for profile picture
-function buildCardImg() {
+function buildCardImg(gender) {
     let div = document.createElement('div');
     let img = document.createElement('img');
-    img.src = "https://i.pinimg.com/originals/06/bc/89/06bc8952bef585843cc8c03d367ebd57.jpg";
+    if(gender === "F") {
+        img.src = "images/female_doctor.png";
+    } else {
+        img.src = "images/male_doctor.png";
+    }
     div.className = "card-img";
     div.appendChild(img);
     return div;

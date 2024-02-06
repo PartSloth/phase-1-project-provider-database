@@ -101,7 +101,7 @@ div#card-container p {
 
 div.card-img img {
     border-radius: 50px;
-    max-width: 75%;
+    max-width: 85%;
     align-self: flex-start;
 }
 
@@ -135,7 +135,7 @@ div.card-img img {
 }
 
 div.work-img img {
-    max-width: 75%;
+    max-width: 65%;
     border-radius: 50px;
 }
 

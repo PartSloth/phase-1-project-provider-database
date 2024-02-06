@@ -31,7 +31,7 @@ function createParams(paramsObj) {
     let queryParams = "";
     for (const param in paramsObj) {
         if(paramsObj[param].length > 0) {
-            queryParams = queryParams + `&${param}=${paramsObj[param]}&limit=50`
+            queryParams = queryParams + `&${param}=${paramsObj[param]}&limit=50&enumeration_type=NPI-1`
         }
     }
     return queryParams;

@@ -32,19 +32,27 @@
         <img src="https://t4.ftcdn.net/jpg/03/25/07/21/360_F_325072136_1WgMYfMSeN8wTdNoCa3wO4jeVie0sA3k.jpg">
     </div>
 
-    <h2>Search Fields</h2>
-    <form id="search-form">
-        <label for="postal_code">Zip Code:</label>
-        <input type="text" id="postal_code" name="postal_code">
-        <label for="first_name">First Name:</label>
-        <input type="text" id="first_name" name="first_name">
-        <label for="last_name">Last Name:</label>
-        <input type="text" id="last_name" name="last_name">
-        <input type="submit" value="Submit">
-    </form>
+    <div id="search-box">
+        <h2>Search for Providers Nearby</h2>
+        <form id="search-form">
+            <div>
+                <label for="postal_code">Zip Code:</label>
+                <input type="text" id="postal_code" name="postal_code">
+            </div>
+            <div>
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name">
+            </div>
+            <div>
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name">
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
 
     <div id="sort-bar">
-        <h2>Sort</h2>
+        <h3>Sort By</h3>
         <div id="button">
         <input type="checkbox" id="medicaid" name="medicaid" value="Medicaid">
         <label for="medicaid-check">Medicaid</label>
@@ -64,7 +72,9 @@
         </div>
     </div>
 
+    <div id="provider">
     <h3>Provider List</h3>
+    </div>
     <div id="placeholder">
         <p id="awaiting">Awaiting results!</p>
     </div>

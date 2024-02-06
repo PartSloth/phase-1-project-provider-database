@@ -2,8 +2,10 @@ document.addEventListener("DOMContentLoaded", function() {
     handleForm();
 });
 
+//Working array
 let resultsArr = [];
 
+//Search form & GET function
 function handleForm() {
     let form = document.querySelector('form');
     let paramsObj = {
@@ -41,6 +43,7 @@ function fetchData(queryParams) {
     });
 }
 
+//Master function to create HTML elements after extraction
 function buildCard(providerArr) {
     const container = document.getElementById('card-container');
     container.innerHTML = '';
@@ -58,6 +61,7 @@ function buildCard(providerArr) {
     })
 }
 
+//Extraction for main card info
 function buildCardInfo(providerObj) {
     let name = `${providerObj.basic.first_name} ${providerObj.basic.last_name}`;
     let npi = providerObj.number;
@@ -80,6 +84,7 @@ function buildCardInfo(providerObj) {
     return div
 }
 
+//Extraction for profile picture
 function buildCardImg() {
     let div = document.createElement('div');
     let img = document.createElement('img');
@@ -89,6 +94,7 @@ function buildCardImg() {
     return div;
 }
 
+//Extraction for sub-info card
 function buildCardDates(providerObj) {
     let divCardDates = document.createElement('div');
     let p1 = document.createElement('p');
@@ -124,6 +130,7 @@ function buildCardDates(providerObj) {
     return divCardDates;
 }
 
+//Extraction for location card
 function buildLocationCard(providerObj) {
     let addressesArr = providerObj.addresses;
     let divLocationCard = document.createElement('div');
@@ -161,6 +168,7 @@ function buildLocationCard(providerObj) {
     return divLocationCard;
 }
 
+//Dropdown menu sort
 function sortArr() {
     var option = document.getElementById('sort-select').value;
     console.log(resultsArr);

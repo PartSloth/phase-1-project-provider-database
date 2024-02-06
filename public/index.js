@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     handleForm();
+    handleDropdown();
 });
 
 //Working array
@@ -174,9 +175,13 @@ function buildLocationCard(providerObj) {
 }
 
 //Dropdown menu sort
-function sortArr() {
-    var option = document.getElementById('sort-select').value;
-    console.log(resultsArr);
+function handleDropdown() {
+    let dropdown = document.querySelector('#sort-select');
+    dropdown.addEventListener('change', event => sortArr(event))
+}
+
+function sortArr(event) {
+    let option = document.getElementById('sort-select').value;
     if(option === "Last Name") {
         resultsArr.sort((a,b) => {
             const nameA = a.basic.last_name;
@@ -206,3 +211,5 @@ function sortArr() {
     }
     buildCard(resultsArr);
 }
+
+//Button sort

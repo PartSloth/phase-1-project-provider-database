@@ -164,8 +164,8 @@ function buildLocationCard(providerObj) {
 function sortArr() {
     var option = document.getElementById('sort-select').value;
     console.log(resultsArr);
-    if(option === "Alphabetical") {
-        this.sort((a,b) => {
+    if(option === "Last Name") {
+        resultsArr.sort((a,b) => {
             const nameA = a.basic.last_name;
             const nameB = b.basic.last_name;
             if(nameA < nameB) {
@@ -176,6 +176,18 @@ function sortArr() {
                 return 0;
             }
         })
-        buildCard(this);
+    } else if(option === "Last Updated") {
+        resultsArr.sort((a,b) => {
+            const dateA = a.basic.last_updated;
+            const dateB = b.basic.last_updated;
+            if(dateA < dateB) {
+                return -1;
+            } else if (dateA > dateB) {
+                return 1;
+            } else {
+                return 0;
+            }
+        })
     }
+    buildCard(resultsArr);
 }

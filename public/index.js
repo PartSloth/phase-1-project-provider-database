@@ -188,6 +188,8 @@ function sortArr() {
                 return 0;
             }
         })
+    } else {
+        resultsArr.sort((a,b) => a.number - b.number);
     }
     buildCard(resultsArr);
 }

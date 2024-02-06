@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     handleForm();
     handleDropdown();
+    handleCheckbox();
 });
 
 //Working array
@@ -213,3 +214,23 @@ function sortArr(event) {
 }
 
 //Button sort
+function handleCheckbox() {
+    let box = document.querySelectorAll('input[type="checkbox"]');
+    box.forEach(box => {
+        box.addEventListener('click', event => {
+            const cards = document.querySelectorAll('.card');
+            if(box.checked) {
+                if(box.name === 'medicaid-check') {
+                    cards.forEach(card => {
+                        const cardWithoutMedicaid = !card.querySelector('.medicaid');
+                        if (cardWithoutMedicaid) {
+                            card.classList.add('hidden');
+                        }
+                    })
+                }
+            } else {
+                cards.forEach(card => card.classList.remove('hidden'))
+            }
+        })
+    });
+}

@@ -142,3 +142,9 @@ div.work-img img {
 .work-info {
     flex: 5;
 }
+
+/* Sort hide */
+
+.hidden {
+    display: none;
+}

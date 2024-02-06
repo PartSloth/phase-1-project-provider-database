@@ -221,7 +221,7 @@ function buildCheckbox() {
     box.forEach(box => {
         box.addEventListener('click', event => {
             const cards = document.querySelectorAll('.card');
-            handleCheckbox(box, cards, 'medicaid');
+            handleCheckbox(box, cards, event.target.name);
         })
     });
 }
@@ -237,6 +237,26 @@ function handleCheckbox(box, cards, criteria) {
             })
         }
     } else {
-        cards.forEach(card => card.classList.remove('hidden'))
+        if (box.name === criteria) {
+            unhideDiv(cards);
+        }
     }
+}
+
+function unhideDiv(cards) {
+    const hiddenArr = [];
+    cards.forEach(card => {
+        if(card.classList.contains('hidden')) {
+            hiddenArr.push(card);
+        }
+        const box = document.querySelectorAll('input[type="checkbox"]:checked');
+        box.forEach(criteria => {
+            hiddenArr.forEach((card, index) => {
+                if (!card.querySelector(`.${criteria.name}`)) {
+                    hiddenArr.splice(index, 1);
+                }
+            });
+        })
+    })
+    hiddenArr.forEach(card => card.classList.remove('hidden'));
 }

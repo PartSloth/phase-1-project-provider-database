@@ -12,7 +12,7 @@ To install this project, you will need to have on your machine:
 
 **ExpressJS**
 
-*API used to communicated with the NPPES API.*
+*API used to communicate with the NPPES API.*
 
 Run the following commands:
 
@@ -39,7 +39,8 @@ Below are the search fields, sort checkboxes, and provider cards that are displa
 
 ## Roadmap
 
-Implementations in the future:
+![Static Badge](https://img.shields.io/badge/02%2F07%2F24-blue)
+Future implementations:
 
 1. At the current moment, there is a possiblity that the search can stall which results in delayed display of results. A message asking the user to attempt submission again would be helpful.
 2. Add additional insurance provider options for sorting.

@@ -29,6 +29,9 @@ $ npm run devStart
 
 ## Usage
 
+Demo video [here.](https://youtu.be/MrvJ5q61cbs)
+[![image.png](https://i.postimg.cc/XqNwzqhW/image.png)](https://postimg.cc/jw9wWxt3)
+
 On run, this is the static webpage that will be locally hosted. This is a preview of how the page could look if used for insurance/medical companies to showcase providers in-network, nearby, and/or referred.
 
 [![image.png](https://i.postimg.cc/kgnYhGS2/image.png)](https://postimg.cc/MvFYnWdw)

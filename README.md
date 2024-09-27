@@ -1,6 +1,6 @@
-# MEDICAL PROVIDER REGISTRY INTERFACE
+# MEDICAL HEALTHCARE SOLUTION
 
-Medical Provider Registry Interface allows users to search through a registry of medical providers pulled from the National Plan & Provider Enumeration System API [NPPES](https://npiregistry.cms.hhs.gov/api-page). Results reflect the provider's most recent information including specializations, place of work, contact information, and a list of insurance coverage. Providers within this registry must have a registered NPI (National Provider Identifier) number which is a 10-digit number that is HIPAA standard to identify providers to their health care partners and to conduct transactions with Medicare and other health plans.
+Medical Healthcare Solution is a medical provider registry interface that allows users to search through a registry of medical providers pulled from the National Plan & Provider Enumeration System API [NPPES](https://npiregistry.cms.hhs.gov/api-page). Results reflect the provider's most recent information including specializations, place of work, contact information, and a list of insurance coverage. Providers within this registry must have a registered NPI (National Provider Identifier) number which is a 10-digit number that is HIPAA standard to identify providers to their health care partners and to conduct transactions with Medicare and other health plans.
 
 - Search by: Zip Code, First Name, Last Name
 - Filter results by gender and/or Medicaid coverage
